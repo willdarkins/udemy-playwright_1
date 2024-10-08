@@ -50,3 +50,21 @@ test ('Working with inputs', async ({page})=> {
     await expect (errorMessage).toContainText('Login and/or password are wrong.'); //error message is throwing and we're expecting the text passed as a value
 
 })
+//asertions bascialy mean we're expecting something about the element to be true
+test ('working with assertions', async ({page})=> {
+    await page.goto('https://example.com')
+    await expect(page).toHaveURL('https://example.com')
+    await expect(page).toHaveTitle('Example Domain')
+
+    //making sure the h1 element is correctly displayed on the screen
+    const element = await page.locator('h1')
+    await expect(element).toBeVisible
+    await expect (element).toHaveText('Example Domain')//a more strict assertion that the text listed is in fact part of the h1 element
+    await expect (element).toHaveCount(1)//verifying there is in fact 1 h1 heading on the page
+
+    //we can also verify certain elements are NOT visisble on the webpage
+    //in this instance we're talking about the h5 heading...
+    const nonExistingElement = await page.locator('h5')
+    await expect (nonExistingElement).not.toBeVisible
+    //*IMPORTANT* when working with an element, it needs to be stored in a varibale before being used in assertion
+})
