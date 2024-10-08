@@ -33,13 +33,13 @@ test ('Selectors Testing @mytag', async ({page})=> {
     await page.click('.submit-button:visible')
 
     //combinations
-    await page.click('#user-name . first') //clicking on an element with and ID and user name shared
+    await page.click('#user-name .first') //clicking on an element with and ID and user name shared
 
     //xpath - need to ask joe for more reference on this
     await page.click('//button')
 })
 
-test.describe('My first test suite', () => {
+test.describe.parallel.only('My first test suite', () => {
     test ('Working with inputs', async ({page})=> {
         const errorMessage = await page.locator('.alert-error')
         
@@ -50,8 +50,8 @@ test.describe('My first test suite', () => {
         await page.fill('#user_password', 'some password') //in the arguement, the first entry will represent the selector, while the second concerns the text
         await page.click('text=Sign in')
         await expect (errorMessage).toContainText('Login and/or password are wrong.'); //error message is throwing and we're expecting the text passed as a value
-    
     })
+
     //asertions bascialy mean we're expecting something about the element to be true
     test ('working with assertions @mytag', async ({page})=> {
         await page.goto('https://example.com')
@@ -86,7 +86,7 @@ test.describe ('hooks', () => {
     })
 })
 
-test.only ('custom helpers', async({page})=> {
+test('custom helpers', async({page})=> {
     await loadHomepage(page)
     // await page.pause()
     await assertTitle(page)
