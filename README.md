@@ -1,7 +1,7 @@
 # Table of Contents
 
 * [About This Project](#about)
-* [How it was Built] (#badges)
+* [How it was Built]e(#badges)
 ---
 ## About
 ---
