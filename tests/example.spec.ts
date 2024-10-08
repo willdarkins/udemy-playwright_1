@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { loadHomepage, assertTitle } from '../helpers'
 
 //Telling Playwright to open the browser and load the address in the link
 test ('Simple basic test', async ( {page} ) => {
