@@ -19,7 +19,7 @@ test ('Clicking on elements', async ({page})=> {
 })
 
 
-test.skip ('Selectors Testing', async ({page})=> {
+test ('Selectors Testing @mytag', async ({page})=> {
     //selecting based on text
     await page.click('text=some text')
 
@@ -52,7 +52,7 @@ test.describe('My first test suite', () => {
     
     })
     //asertions bascialy mean we're expecting something about the element to be true
-    test ('working with assertions', async ({page})=> {
+    test ('working with assertions @mytag', async ({page})=> {
         await page.goto('https://example.com')
         await expect(page).toHaveURL('https://example.com')
         await expect(page).toHaveTitle('Example Domain')
