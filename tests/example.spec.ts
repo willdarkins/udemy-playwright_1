@@ -72,7 +72,7 @@ test.describe('My first test suite', () => {
     })
 })
 
-test.describe.only ('hooks', () => {
+test.describe ('hooks', () => {
     test.beforeEach(async ({ page })=> {
         await page.goto('https://example.com') //stating that before each of the tests run in this suite, I want to load the website
     })
@@ -84,4 +84,9 @@ test.describe.only ('hooks', () => {
         const element = await page.$('h1')
         await element.screenshot({path:'single_element_screneshot.png'})
     })
+})
+
+test.only ('custom helpers', async({page})=> {
+    await loadHomepage(page)
+    await assertTitle(page)
 })
