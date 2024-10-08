@@ -19,21 +19,34 @@ test ('Clicking on elements', async ({page})=> {
 })
 
 
-test ('Selectors Testing', async ({page})=> {
-    //selecting based on text
-    await page.click('text=some text')
+// test ('Selectors Testing', async ({page})=> {
+//     //selecting based on text
+//     await page.click('text=some text')
 
-    //css selectors
-    await page.click('button')
-    await page.click('#id')
-    await page.click('.class')
+//     //css selectors
+//     await page.click('button')
+//     await page.click('#id')
+//     await page.click('.class')
 
-    //only visible css selectors - clicking on something that is only visible on screen
-    await page.click('.submit-button:visible')
+//     //only visible css selectors - clicking on something that is only visible on screen
+//     await page.click('.submit-button:visible')
 
-    //combinations
-    await page.click('#user-name . first') //clicking on an element with and ID and user name shared
+//     //combinations
+//     await page.click('#user-name . first') //clicking on an element with and ID and user name shared
 
-    //xpath - need to ask joe for more reference on this
-    await page.click('//button')
+//     //xpath - need to ask joe for more reference on this
+//     await page.click('//button')
+// })
+
+test ('Working with inputs', async ({page})=> {
+    const errorMessage = await page.locator('.alert-error')
+    
+    await page.goto('http://zero.webappsecurity.com/index.html')
+    await page.click('#signin_button')
+
+    await page.fill('#user_login', 'some username')
+    await page.fill('#user_password', 'some password') //in the arguement, the first entry will represent the selector, while the second concerns the text
+    await page.click('text=Sign in')
+    await expect (errorMessage).toContainText('Login and/or password are wrong.'); //error message is throwing and we're expecting the text passed as a value
+
 })
