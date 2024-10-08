@@ -1,6 +1,9 @@
+# Table of Contents
 
+* [About This Project](#about)
+* [How it was Built] (#badges)
 ---
-## About the Project
+## About
 ---
 Playwright Demo - This project is based on a Udemy Course which teaches the basic fundamentals of Playwright Automation and Typescript. There are no substanatial features to mention, rather concepts that are worked which include:
 * Basic set up of tests
@@ -14,7 +17,7 @@ Playwright Demo - This project is based on a Udemy Course which teaches the basi
 * Troubleshooting
 * Running parallel tests
 
-### Built With
+### Badges
 *The following programming languages, frameworks, platforms and libraries were utilized when completing this project:*
 
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
