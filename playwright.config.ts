@@ -5,7 +5,6 @@ const config: PlaywrightTestConfig = {
     retries: 0, //How many times you want playwright to rerun failed tests
     //'use' is for specific settings you want to apply to the environment
     use: {
-        headless: true, //Do you want to run the tests with, or without opening the browser?
         viewport: {width: 1280, height: 720}, //what dimension the screen should be in
         actionTimeout: 15000, //setting the maximum time allowed for an action to complete before it is considered a failure
         ignoreHTTPSErrors: true,

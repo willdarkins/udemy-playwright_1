@@ -88,5 +88,6 @@ test.describe ('hooks', () => {
 
 test.only ('custom helpers', async({page})=> {
     await loadHomepage(page)
+    await page.pause()
     await assertTitle(page)
 })
