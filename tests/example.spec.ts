@@ -71,15 +71,16 @@ test.describe('My first test suite', () => {
     })
 })
 
-test ('screenshot', async ({ page }) => {
-    //1. load website
-    await page.goto('https://example.com')
-    //2. take screenshot of page
-    await page.screenshot({path:'screenshot.png', fullPage: true}) //the path argument takes in what the file should be titled, and what part of the page should be captured
-})
-
-test.only ('single element screenshot', async ({ page })=> {
-    await page.goto('https://example.com')
-    const element = await page.$('h1')
-    await element.screenshot({path:'single_element_screneshot.png'})
+test.describe.only ('hooks', () => {
+    test.beforeEach(async ({ page })=> {
+        await page.goto('https://example.com') //stating that before each of the tests run in this suite, I want to load the website
+    })
+    test ('screenshot', async ({ page }) => {
+        await page.screenshot({path:'screenshot.png', fullPage: true}) //the path argument takes in what the file should be titled, and what part of the page should be captured
+    })
+    
+    test ('single element screenshot', async ({ page })=> {
+        const element = await page.$('h1')
+        await element.screenshot({path:'single_element_screneshot.png'})
+    })
 })
